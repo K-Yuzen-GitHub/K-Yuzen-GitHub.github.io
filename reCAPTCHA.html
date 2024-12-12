@@ -3,16 +3,18 @@
   <head>
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcqcJkqAAAAALMOX7PXpyBVu-i5-Zhr8lTJkmSe"></script>
     <script>
-  function captcha(e) {
-    e.preventDefault();
-    grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LcqcJkqAAAAALMOX7PXpyBVu-i5-Zhr8lTJkmSe', {action: 'LOGIN'});
-    });
+  function onSubmit(token) {
+    document.getElementById("demo-form").submit();
   }
 </script>
   <!-- Your code -->
   </head>
   <body>
-    <button onclick="captcha()">reCAPTCHA</button>
+    <button class="g-recaptcha"
+    data-sitekey="6LcqcJkqAAAAALMOX7PXpyBVu-i5-Zhr8lTJkmSe"
+    data-callback='onSubmit'
+    data-action='submit'>
+  Submit
+</button>
   </body>
 </html>
