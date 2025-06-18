@@ -1,0 +1,57 @@
+html,body {
+    /*上下方向にはみ出した要素ををスクロールさせる*/
+    overflow-y: hidden;
+    /*スクロールバー非表示（IE・Edge）*/
+    -ms-overflow-style: none;
+    /*スクロールバー非表示（Firefox）*/
+    scrollbar-width: none;
+    height: 100%;
+    margin: 0;
+    background-color: #FDF8F3; /* デフォルトはライトテーマにしておく */
+}
+
+.social_link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* X方向の中央揃え */
+    align-items: center;     /* Y方向の中央揃え */
+    height: 100%;            /* 必要に応じて高さを指定 */
+    gap: 2rem;               /* アイコン間の間隔（お好みで調整） */
+}
+.social_link div {
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+    opacity: 0.7; /* デフォルトは少し薄く */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* opacity と transform に transition */
+}
+.social_link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 画像が枠に収まるように */
+}
+.social_link div:hover {
+    opacity: 1.0; /* ホバー時は元の濃さ */
+    transform: scale(1.2); /* ホバー時は1.1倍に拡大 */
+}
+.un_icn {
+    border-radius: 3px;
+}
+.credit {
+    font-family: "Funnel Display";
+    font-weight: 100;
+    font-size: 15px;
+    position: relative;
+    text-align: center;
+    top: -45%;
+    color: #2C2F36;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #2C2F36; /* ダークテーマ用の色 */
+    }
+    .credit {
+        color: #FDF8F3;
+    }
+}
