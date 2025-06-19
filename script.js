@@ -1,8 +1,30 @@
 let isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+let hoverLabel = document.querySelector(".hover_contents")
+
 
 function qs(v1) {
     return document.querySelector(v1);
 }
+
+function setHover(selector, text, url) {
+    let el = qs(selector);
+    el.onmouseover = function() {
+        hoverLabel.innerText = text;
+    }
+    el.onmouseout = function() {
+        hoverLabel.innerText = "";
+    }
+    el.onclick = function() {
+        window.open(url);
+    }
+}
+
+setHover(".github", "My GitHub account", "https://github.com/k-yuzen-github");
+setHover(".misskey", "KYMisskey Server", "https://ky-misskey.xyz");
+setHover(".twitter", "My Twitter account", "https://twitter.com/K_Yuzen_67854");
+setHover(".uwuzu_net", "My uwuzu.net account", "https://uwuzu.net/@k_yuzen");
+setHover(".youtube", "My YouTube channel", "https://www.youtube.com/@kyuzen01-ky");
+
 qs(".github").onclick = function() {
     window.open("https://github.com/k-yuzen-github");
 }

@@ -37,7 +37,7 @@ html,body {
 .un_icn {
     border-radius: 3px;
 }
-.credit {
+.others {
     font-family: "Funnel Display";
     font-weight: 100;
     font-size: 15px;
@@ -51,7 +51,10 @@ html,body {
     body {
         background-color: #2C2F36; /* ダークテーマ用の色 */
     }
-    .credit {
+    .others {
         color: #FDF8F3;
     }
+}
+.hover_contents {
+    font-size: 20px;
 }
