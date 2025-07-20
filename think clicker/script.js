@@ -145,3 +145,6 @@ document.querySelector(".all_reset").onclick = function() {
         location.reload()
     }
 }
+document.querySelector(".skins").onchange = function(){
+    console.log(this.value)
+}
