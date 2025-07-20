@@ -129,7 +129,8 @@ async function save() {
     let saveData = {
         nowTimer: timer,
         clickCount: clickCounter,
-        clickUpNow: clickPlus
+        clickUpNow: clickPlus,
+        nowSkin: skinsMenu.value
     }
     console.log(saveData)
     localStorage.setItem("save_00",JSON.stringify(saveData))
@@ -147,7 +148,9 @@ if (saved != null) {
     clickCounter = a.clickCount;
     clickPlus = a.clickUpNow;
     timer = a.nowTimer;
+    skinsMenu.value = a.nowSkin;
     previousCounter = clickCounter;
+    skinsMenu.onchange();
     updateCounter();
 }
 
@@ -200,6 +203,6 @@ skinsMenu.onchange = function(){
         updateImg("ky","normal")
     }
     if (this.value == "think_face") {
-        imgEle.onclick()
+        updateImg("thinking-face","twemoji")
     }
 }
