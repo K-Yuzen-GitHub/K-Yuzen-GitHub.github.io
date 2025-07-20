@@ -88,7 +88,7 @@ imgEle.onclick = function() {
     void imgEle.offsetWidth; // ← アニメ強制再適用
     imgEle.classList.add("emoji-clicked");
 };
-function save() {
+async function save() {
     let saveData = {
         nowTimer: timer,
         clickCount: clickCounter,
@@ -96,6 +96,10 @@ function save() {
     }
     console.log(saveData)
     localStorage.setItem("save_00",JSON.stringify(saveData))
+    disableTextRewrite = true;
+    document.querySelector(".timer").textContent = "Saved.";
+    await sleep(3000);
+    disableTextRewrite = false;
 }
 
 var saved = localStorage.getItem("save_00");
@@ -124,10 +128,6 @@ setInterval(function () {
 
 setInterval(async function() {
     save();
-    disableTextRewrite = true;
-    document.querySelector(".timer").textContent = "Saved.";
-    await sleep(3000);
-    disableTextRewrite = false;
 },30000)
 document.querySelector(".save").onclick = async function(){save();}
 document.querySelector(".delete_save").onclick = function() {
