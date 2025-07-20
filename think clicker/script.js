@@ -82,10 +82,8 @@ lvupBtns.clickUp.onclick = function () {
                     } else {
                         alert("You need at least 100 clicks!");
                     }
-                }
             }
         }
-    }
     } else {
         alert("You've reached maximum thinking power!! 🧠⚡");
     }
