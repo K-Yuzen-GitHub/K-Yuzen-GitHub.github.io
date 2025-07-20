@@ -140,29 +140,14 @@ async function save() {
     disableTextRewrite = false;
 }
 
-var saved = localStorage.getItem("save_00");
-if (saved != null) {
-    console.log(saved)
-    let a = JSON.parse(saved);
-    console.log(a)
-    clickCounter = a.clickCount;
-    clickPlus = a.clickUpNow;
-    timer = a.nowTimer;
-    skinsMenu.value = a.nowSkin;
-    previousCounter = clickCounter;
-    skinsMenu.onchange();
-    updateCounter();
-}
-
 let startTime = performance.now() - (timer * 1000); // ← これ重要！
-
 setInterval(function () {
     let now = performance.now();
     let elapsedSec = (now - startTime) / 1000;
     timer = elapsedSec;
     if (!disableTextRewrite) {
         document.querySelector(".timer").textContent =
-        `${gameInfo.version} (build ${gameInfo.buildNumber}) | Timer: ${elapsedSec.toFixed(3)}s | Copyright K.Yuzen 2023-2025, All right reserved.`;
+        `Timer: ${elapsedSec.toFixed(3)}s | Clicks: ${clickCounter} | Click Multipier: ${clikPlus}`;
     }
 }, 16);
 
@@ -205,4 +190,18 @@ skinsMenu.onchange = function(){
     if (this.value == "think_face") {
         updateImg("thinking-face","twemoji")
     }
+}
+
+var saved = localStorage.getItem("save_00");
+if (saved != null) {
+    console.log(saved)
+    let a = JSON.parse(saved);
+    console.log(a)
+    clickCounter = a.clickCount;
+    clickPlus = a.clickUpNow;
+    timer = a.nowTimer;
+    skinsMenu.value = a.nowSkin;
+    previousCounter = clickCounter;
+    skinsMenu.onchange();
+    updateCounter();
 }
