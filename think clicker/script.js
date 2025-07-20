@@ -69,7 +69,16 @@ lvupBtns.clickUp.onclick = function () {
             updateCounter();
         } else {
             alert("You need at least 100 clicks!");
-        }
+        } else if (clickPlus >= 20 && clickPlus < 50) {
+            lvupBtns.clickUp.textContent = "+7 Click (Cost: 200)";
+            if (clickCounter >= 200) {
+                clickCounter -= 200;
+                clickPlus += 7;
+                lvupBtns.clickUp.textContent = "+7 Click (Cost: 200)";
+                updateCounter();
+            } else {
+                alert("You need at least 100 clicks!");
+            }
     } else {
         alert("You've reached maximum thinking power!! 🧠⚡");
     }
