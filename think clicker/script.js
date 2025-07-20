@@ -129,3 +129,10 @@ setInterval(async function() {
     await sleep(3000);
     disableTextRewrite = false;
 },30000)
+document.querySelector(".save").onclick = function(){save();}
+document.querySelector(".delete_save").onclick = function() {
+    let YorN = confirm("この操作をすると、セーブデータが削除されますがよろしいですか？");
+    if (YorN == true) {
+        localStorage.removeItem("save_00")
+    }
+}
