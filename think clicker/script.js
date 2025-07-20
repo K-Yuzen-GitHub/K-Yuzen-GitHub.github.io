@@ -3,7 +3,7 @@ var imgType = "thinking-face";
 var clickCounter = 0;
 var clickPlus = 1;
 var timer = 0.000
-var nextClick = 0
+var nextClick = 100
 
 let disableTextRewrite = false
 let imgEle = document.querySelector(".emoji");
