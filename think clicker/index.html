@@ -12,6 +12,9 @@
             <p class="clickCount">Count: </p>
             <img class="emoji" src="./thinking-face_fluent.png">
             <button class="lvup upClick"></button>
+            <div class="controls">
+                <button class="ctlbtn save">Save</button>
+            </div>
         </div>
         <p class="timer">Timer: 0.000s</p>
         <style>
@@ -30,7 +33,21 @@
             box-shadow: 0 0 4px rgba(0,0,0,0.1);
         }
 
-
+        .controls {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            font-family: 'Noto Sans Japanese';
+            font-weight: bold;
+            font-size: 0.75rem;
+            color: #444;
+            margin: 0;
+            padding: 0.2rem 0.5rem;
+            background-color: rgba(255,255,255,0.7); /* ちょっと見やすく */
+            border-radius: 4px;
+            box-shadow: 0 0 4px rgba(0,0,0,0.1);
+        }
+        
         .clickArea {
             display: flex;
             flex-wrap: wrap;
