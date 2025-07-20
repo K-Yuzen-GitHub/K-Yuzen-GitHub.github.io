@@ -5,12 +5,20 @@ var clickPlus = 1;
 var timer = 0.000
 
 let disableTextRewrite = false
+let imgEle = document.querySelector(".emoji");
+let countText = document.querySelector(".clickCount");
 let gameInfo = {
     version: "v1.2.0",
     buildNumber: "20250720-120"
 }
-let imgEle = document.querySelector(".emoji");
-let countText = document.querySelector(".clickCount");
+let skinState = {
+    default: {
+        unlocked:true
+    },
+    ky: {
+        unlocked:false
+    }
+}
 let lvupBtns = {
     clickUp: document.querySelector(".upClick")
 }
@@ -145,6 +153,17 @@ document.querySelector(".all_reset").onclick = function() {
         location.reload()
     }
 }
+function updateSkinUIState() {
+    if (!skinState.ky.unlocked) {
+        document.querySelector(".skins").options[1].innerText = "KY (by TYOKOGITUNE) [LOCKED]"
+    } else {
+        document.querySelector(".skins").options[1].innerText = "KY (by TYOKOGITUNE)"
+    }
+}
 document.querySelector(".skins").onchange = function(){
     console.log(this.value)
+    if (!skinState.ky.unlocked) {
+        alert("This skin is not unlocked!");
+        this.value = "default";
+    }
 }
