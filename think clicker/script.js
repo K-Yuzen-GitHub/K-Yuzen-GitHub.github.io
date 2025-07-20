@@ -80,13 +80,13 @@ lvupBtns.clickUp.onclick = function () {
                         lvupBtns.clickUp.textContent = "+7 Click (Cost: 200)";
                         updateCounter();
                     } else {
-                        alert("You need at least 100 clicks!");
+                        alert("You need at least 200 clicks!");
                     }
+            } else {
+                alert("You've reached maximum thinking power!! 🧠⚡");
             }
         }
-    } else {
-        alert("You've reached maximum thinking power!! 🧠⚡");
-    }
+    } 
 };
 
 
