@@ -136,3 +136,10 @@ document.querySelector(".delete_save").onclick = function() {
         localStorage.removeItem("save_00")
     }
 }
+document.querySelector(".all_reset").onclick = function() {
+    let YorN = confirm("このゲームのユーザーデータをすべて削除して、再読み込みします。\nよろしいですか？")
+    if (YorN == true) {
+        localStorage.removeItem("save_00")
+        location.reload
+    }
+}
