@@ -9,8 +9,8 @@ let imgEle = document.querySelector(".emoji");
 let countText = document.querySelector(".clickCount");
 let skinsMenu = document.querySelector(".skins");
 let gameInfo = {
-    version: "v1.5.5",
-    buildNumber: "20250720-155"
+    version: "v1.6",
+    buildNumber: "20250720-160"
 }
 let skinState = {
     default: {
