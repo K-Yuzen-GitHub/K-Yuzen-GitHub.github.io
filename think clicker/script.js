@@ -128,4 +128,4 @@ setInterval(async function() {
     document.querySelector(".timer").textContent = "Saved.";
     await sleep(3000);
     disableTextRewrite = false;
-},60)
+},30000)
