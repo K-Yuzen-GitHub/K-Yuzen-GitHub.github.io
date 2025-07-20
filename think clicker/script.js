@@ -1,4 +1,4 @@
-var imgPrefix = "fluent";
+var imgPrefix = "twemoji";
 var clickCounter = 0;
 var clickPlus = 1;
 var timer = 0.000
