@@ -1,4 +1,5 @@
 var imgPrefix = "twemoji";
+var imgType = "thinking-face";
 var clickCounter = 0;
 var clickPlus = 1;
 var timer = 0.000
@@ -16,10 +17,11 @@ let lvupBtns = {
 const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));//timeはミリ秒
 let previousCounter = 0;
 
-function updateImg(prefix) {
+function updateImg(type,prefix) {
+    imgType = type;
     imgPrefix = prefix;
-    imgEle.src = `./thinking-face_${imgPrefix}.png`;
-    console.log(`Update image prefix to ${imgPrefix}.`);
+    imgEle.src = `./${imgType}_${imgPrefix}.png`;
+    console.log(`Image prefix and type is updated to ${imgType}, ${imgPrefix}.`);
 }
 
 function updateCounter() {
@@ -66,20 +68,20 @@ lvupBtns.clickUp.onclick = function () {
 };
 
 
-updateImg("twemoji");
+updateImg("thinking-face","twemoji");
 updateCounter();
 
 imgEle.onclick = function() {
     // 数値増加
     clickCounter += clickPlus;
     if (clickCounter >= 100 && clickCounter <= 500) {
-        updateImg("noto");
+        updateImg("thinking-face","noto");
     }
     if (clickCounter >= 500 && clickCounter <= 2000) {
-        updateImg("fluent")
+        updateImg("thinking-face","fluent")
     }
     if (clickCounter >= 2000) {
-        updateImg("apple")
+        updateImg("thinking-face","apple")
     }
     updateCounter();
 
