@@ -94,7 +94,7 @@ lvupBtns.clickUp.onclick = function () {
 updateImg("thinking-face","twemoji");
 updateCounter();
 
-imgEle.onclick = function() {
+imgEle.onclick = async function() {
     updateSkinUIState();
     nowSkin = skinsMenu.value;
     // 数値増加
@@ -114,6 +114,9 @@ imgEle.onclick = function() {
         updateSkinUIState()
     }
     if (nowSkin == "ky_by_tg") {
+        updateImg("ky","normal")
+        updateImg("ky","normal_click")
+        await(500)
         updateImg("ky","normal")
     }
     updateCounter();
