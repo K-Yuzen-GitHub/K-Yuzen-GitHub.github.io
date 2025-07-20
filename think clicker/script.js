@@ -122,7 +122,7 @@ setInterval(function () {
     }
 }, 16);
 
-setTimeout(async function() {
+setInterval(async function() {
     save();
     disableTextRewrite = true;
     document.querySelector(".timer").textContent = "Saved.";
