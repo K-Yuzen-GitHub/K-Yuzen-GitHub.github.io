@@ -3,6 +3,7 @@ var imgType = "thinking-face";
 var clickCounter = 0;
 var clickPlus = 1;
 var timer = 0.000
+var nextClick = 0
 
 let disableTextRewrite = false
 let imgEle = document.querySelector(".emoji");
@@ -100,15 +101,19 @@ imgEle.onclick = async function() {
     // 数値増加
     clickCounter += clickPlus;
     if (clickCounter >= 100 && clickCounter <= 500 && nowSkin == "think_face") {
+        nextClick = 500;
         updateImg("thinking-face","noto");
     }
     if (clickCounter >= 500 && clickCounter <= 2000 && nowSkin == "think_face") {
+        nextClick = 2000;
         updateImg("thinking-face","fluent")
     }
     if (clickCounter >= 2000 && nowSkin == "think_face") {
+        nextClick = 5000;
         updateImg("thinking-face","apple")
     }
     if (clickCounter == 5000 && nowSkin == "think_face") {
+        nextClick = 1e+1
         skinState.ky.unlocked = true;
         alert('Skin "KY" is now UNLOCKED!!!')
         updateSkinUIState()
@@ -147,7 +152,7 @@ setInterval(function () {
     timer = elapsedSec;
     if (!disableTextRewrite) {
         document.querySelector(".timer").textContent =
-        `Timer: ${elapsedSec.toFixed(3)}s | Clicks: ${clickCounter} | Click Multipier: ${clickPlus}`;
+        `Timer: ${elapsedSec.toFixed(3)}s | Clicks: ${clickCounter} | Click Multipier: ${clickPlus} | Next level: ${nextClick - clickCounter}`;
     }
     document.querySelector(".info").textContent =
     `${gameInfo.version} (build ${gameInfo.buildNumber}) | Copyright K.Yuzen 2023-2025, All right reserved.`;
@@ -172,7 +177,7 @@ document.querySelector(".all_reset").onclick = function() {
 }
 function updateSkinUIState() {
     if (!skinState.ky.unlocked) {
-        skinsMenu.options[1].innerText = "KY (by TYOKOGITUNE) [LOCKED]"
+        skinsMenu.options[1].innerText = "KY (by TYOKOGITUNE) [LOCKED: 5000 CLICKS]"
     } else {
         skinsMenu.options[1].innerText = "KY (by TYOKOGITUNE)"
     }
