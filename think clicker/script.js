@@ -99,16 +99,16 @@ imgEle.onclick = function() {
     nowSkin = skinsMenu.value;
     // 数値増加
     clickCounter += clickPlus;
-    if (clickCounter >= 100 && clickCounter <= 500 && nowSkin == "thinking_face") {
+    if (clickCounter >= 100 && clickCounter <= 500 && nowSkin == "think_face") {
         updateImg("thinking-face","noto");
     }
-    if (clickCounter >= 500 && clickCounter <= 2000 && nowSkin == "thinking_face") {
+    if (clickCounter >= 500 && clickCounter <= 2000 && nowSkin == "think_face") {
         updateImg("thinking-face","fluent")
     }
-    if (clickCounter >= 2000 && nowSkin == "thinking_face") {
+    if (clickCounter >= 2000 && nowSkin == "think_face") {
         updateImg("thinking-face","apple")
     }
-    if (clickCounter >= 5000 && nowSkin == "thinking_face") {
+    if (clickCounter >= 5000 && nowSkin == "think_face") {
         skinState.ky.unlocked = true;
         alert('Skin "KY" is now UNLOCKED!!!')
         updateSkinUIState()
