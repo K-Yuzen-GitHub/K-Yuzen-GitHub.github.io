@@ -80,6 +80,7 @@ updateImg("thinking-face","twemoji");
 updateCounter();
 
 imgEle.onclick = function() {
+    updateSkinUIState();
     // 数値増加
     clickCounter += clickPlus;
     if (clickCounter >= 100 && clickCounter <= 500) {
@@ -161,9 +162,10 @@ function updateSkinUIState() {
     }
 }
 document.querySelector(".skins").onchange = function(){
+    updateSkinUIState();
     console.log(this.value)
     if (!skinState.ky.unlocked) {
         alert("This skin is not unlocked!");
-        this.value = "default";
+        this.value = "think_face";
     }
 }
