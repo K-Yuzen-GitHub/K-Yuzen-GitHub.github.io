@@ -147,7 +147,7 @@ setInterval(function () {
     timer = elapsedSec;
     if (!disableTextRewrite) {
         document.querySelector(".timer").textContent =
-        `Timer: ${elapsedSec.toFixed(3)}s | Clicks: ${clickCounter} | Click Multipier: ${clikPlus}`;
+        `Timer: ${elapsedSec.toFixed(3)}s | Clicks: ${clickCounter} | Click Multipier: ${clickPlus}`;
     }
     document.querySelector(".info").textContent =
     `${gameInfo.version} (build ${gameInfo.buildNumber}) | Copyright K.Yuzen 2023-2025, All right reserved.`;
