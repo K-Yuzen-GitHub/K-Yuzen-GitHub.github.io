@@ -13,7 +13,7 @@ let countText = document.querySelector(".clickCount");
 let lvupBtns = {
     clickUp: document.querySelector(".upClick")
 }
-
+const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));//timeはミリ秒
 let previousCounter = 0;
 
 function updateImg(prefix) {
@@ -121,3 +121,11 @@ setInterval(function () {
         `${gameInfo.version} (build ${gameInfo.buildNumber}) | Timer: ${elapsedSec.toFixed(3)}s | Copyright K.Yuzen 2023-2025, All right reserved.`;
     }
 }, 16);
+
+setTimeout(async function() {
+    save();
+    disableTextRewrite = true;
+    document.querySelector(".timer").textContent = "Saved.";
+    await sleep(3000);
+    disableTextRewrite = false;
+},60)
