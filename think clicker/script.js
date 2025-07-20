@@ -60,25 +60,31 @@ lvupBtns.clickUp.onclick = function () {
         } else {
             alert("You need at least 50 clicks!");
         }
-    } else if (clickPlus >= 7 && clickPlus < 20) {
+    } else {
+        if (clickPlus >= 7 && clickPlus < 20) {
         lvupBtns.clickUp.textContent = "+3 Click (Cost: 100)";
-        if (clickCounter >= 100) {
-            clickCounter -= 100;
-            clickPlus += 3;
-            lvupBtns.clickUp.textContent = "+3 Click (Cost: 100)";
-            updateCounter();
-        } else {
-            alert("You need at least 100 clicks!");
-        } else if (clickPlus >= 20 && clickPlus < 50) {
-            lvupBtns.clickUp.textContent = "+7 Click (Cost: 200)";
-            if (clickCounter >= 200) {
-                clickCounter -= 200;
-                clickPlus += 7;
-                lvupBtns.clickUp.textContent = "+7 Click (Cost: 200)";
+            if (clickCounter >= 100) {
+                clickCounter -= 100;
+                clickPlus += 3;
+                lvupBtns.clickUp.textContent = "+3 Click (Cost: 100)";
                 updateCounter();
             } else {
                 alert("You need at least 100 clicks!");
+            } 
+        } else {
+            if (clickPlus >= 20 && clickPlus < 50) {
+                lvupBtns.clickUp.textContent = "+7 Click (Cost: 200)";
+                    if (clickCounter >= 200) {
+                        clickCounter -= 200;
+                        clickPlus += 7;
+                        lvupBtns.clickUp.textContent = "+7 Click (Cost: 200)";
+                        updateCounter();
+                    } else {
+                        alert("You need at least 100 clicks!");
+                    }
+                }
             }
+        }
     }
     } else {
         alert("You've reached maximum thinking power!! 🧠⚡");
