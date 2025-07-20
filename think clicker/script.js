@@ -9,8 +9,8 @@ let imgEle = document.querySelector(".emoji");
 let countText = document.querySelector(".clickCount");
 let skinsMenu = document.querySelector(".skins");
 let gameInfo = {
-    version: "v1.5",
-    buildNumber: "20250720-150"
+    version: "v1.5.5",
+    buildNumber: "20250720-155"
 }
 let skinState = {
     default: {
@@ -108,15 +108,14 @@ imgEle.onclick = async function() {
     if (clickCounter >= 2000 && nowSkin == "think_face") {
         updateImg("thinking-face","apple")
     }
-    if (clickCounter >= 5000 && nowSkin == "think_face") {
+    if (clickCounter == 5000 && nowSkin == "think_face") {
         skinState.ky.unlocked = true;
         alert('Skin "KY" is now UNLOCKED!!!')
         updateSkinUIState()
     }
     if (nowSkin == "ky_by_tg") {
-        updateImg("ky","normal")
         updateImg("ky","normal_click")
-        await(500)
+        await sleep(500)
         updateImg("ky","normal")
     }
     updateCounter();
