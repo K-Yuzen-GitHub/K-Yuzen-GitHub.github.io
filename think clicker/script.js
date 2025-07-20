@@ -3,6 +3,11 @@ var clickCounter = 0;
 var clickPlus = 1;
 var timer = 0.000
 
+let disableTextRewrite = false
+let gameInfo = {
+    version: "v1.1.0",
+    buildNumber: "20250720-110"
+}
 let imgEle = document.querySelector(".emoji");
 let countText = document.querySelector(".clickCount");
 let lvupBtns = {
@@ -111,7 +116,8 @@ setInterval(function () {
     let now = performance.now();
     let elapsedSec = (now - startTime) / 1000;
     timer = elapsedSec;
-    document.querySelector(".timer").textContent =
-        `Timer: ${elapsedSec.toFixed(3)}s | Copyright K.Yuzen 2023-2025, All right reserved.`;
-    save();
+    if (!disableTextRewrite) {
+        document.querySelector(".timer").textContent =
+        `${gameInfo.version} (build ${gameInfo.buildNumber}) | Timer: ${elapsedSec.toFixed(3)}s | Copyright K.Yuzen 2023-2025, All right reserved.`;
+    }
 }, 16);
