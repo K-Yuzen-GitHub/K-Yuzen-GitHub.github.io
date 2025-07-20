@@ -191,6 +191,9 @@ function updateSkinUIState() {
 skinsMenu.onchange = function(){
     updateSkinUIState();
     console.log(this.value)
+    if (clickCounter >= 5000) {
+        skinState.ky.unlocked = true;
+    }
     if (!skinState.ky.unlocked && this.value == "ky_by_tg") {
         alert("This skin is not unlocked!");
         this.value = "think_face";
