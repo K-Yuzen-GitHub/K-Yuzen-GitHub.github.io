@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ThinkFace Clicker</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="clickArea">
+            <p class="clickCount">Count: </p>
+            <img class="emoji" src="./thinking-face_fluent.png">
+            <button class="lvup upClick"></button>
+        </div>
+        <p class="timer">Timer: 0.000s</p>
+        <style>
+        .timer {
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            font-family: 'Noto Sans Japanese';
+            font-weight: bold;
+            font-size: 1.0rem;
+            color: #444;
+            margin: 0;
+            padding: 0.2rem 0.5rem;
+            background-color: rgba(255,255,255,0.7); /* ちょっと見やすく */
+            border-radius: 4px;
+            box-shadow: 0 0 4px rgba(0,0,0,0.1);
+        }
+
+
+        .clickArea {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* X方向の中央揃え */
+            align-items: center;     /* Y方向の中央揃え */
+            height: 100%;            /* 必要に応じて高さを指定 */
+            gap: 2rem;               /* アイコン間の間隔（お好みで調整） */
+        }
+
+        .clickArea img {
+            cursor: pointer;
+            width: 128px;
+            height: 128px;
+            opacity: 0.7; /* デフォルトは少し薄く */
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* opacity と transform に transition */
+        }
+
+        .clickArea img:hover {
+            opacity: 1.0; /* ホバー時は元の濃さ */
+            transform: scale(1.2); /* ホバー時は1.1倍に拡大 */
+        }
+        html,body {
+            /*上下方向にはみ出した要素ををスクロールさせる*/
+            overflow-y: hidden;
+            /*スクロールバー非表示（IE・Edge）*/
+            -ms-overflow-style: none;
+            /*スクロールバー非表示（Firefox）*/
+            scrollbar-width: none;
+            height: 100%;
+            margin: 0;
+            background-color: #FDF8F3; /* デフォルトはライトテーマにしておく */
+        }
+        /* アニメーション（カウントが減ったとき） */
+        .count-flash-down {
+            color: red;
+            animation: flashDown 0.4s ease;
+        }
+
+        /* アニメーション（カウントが増えたとき） */
+        .count-flash-up {
+            color: green;
+            animation: flashUp 0.4s ease;
+        }
+
+        @keyframes flashDown {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes flashUp {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        /* クリック時にキュッと縮むアニメ */
+        .emoji-clicked {
+            animation: clickShrink 0.15s ease;
+        }
+
+        @keyframes clickShrink {
+            0%   { transform: scale(1.2); }
+            50%  { transform: scale(1.05); }
+            100% { transform: scale(1.2); }
+        }
+
+        </style>
+        <script src="./script.js"></script>
+    </body>
+</html>
