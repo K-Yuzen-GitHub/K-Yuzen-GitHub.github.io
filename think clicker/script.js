@@ -7,6 +7,7 @@ var timer = 0.000
 let disableTextRewrite = false
 let imgEle = document.querySelector(".emoji");
 let countText = document.querySelector(".clickCount");
+let skinsMenu = document.querySelector(".skins");
 let gameInfo = {
     version: "v1.2.0",
     buildNumber: "20250720-120"
@@ -95,21 +96,25 @@ updateCounter();
 
 imgEle.onclick = function() {
     updateSkinUIState();
+    nowSkin = skinsMenu.value;
     // 数値増加
     clickCounter += clickPlus;
-    if (clickCounter >= 100 && clickCounter <= 500) {
+    if (clickCounter >= 100 && clickCounter <= 500 && nowSkin == "thinking_face") {
         updateImg("thinking-face","noto");
     }
-    if (clickCounter >= 500 && clickCounter <= 2000) {
+    if (clickCounter >= 500 && clickCounter <= 2000 && nowSkin == "thinking_face") {
         updateImg("thinking-face","fluent")
     }
-    if (clickCounter >= 2000) {
+    if (clickCounter >= 2000 && nowSkin == "thinking_face") {
         updateImg("thinking-face","apple")
     }
-    if (clickCounter >= 5000) {
+    if (clickCounter >= 5000 && nowSkin == "thinking_face") {
         skinState.ky.unlocked = true;
         alert('Skin "KY" is now UNLOCKED!!!')
         updateSkinUIState()
+    }
+    if (nowSkin == "ky_by_tg") {
+        updateImg("ky","normal")
     }
     updateCounter();
 
@@ -175,16 +180,21 @@ document.querySelector(".all_reset").onclick = function() {
 }
 function updateSkinUIState() {
     if (!skinState.ky.unlocked) {
-        document.querySelector(".skins").options[1].innerText = "KY (by TYOKOGITUNE) [LOCKED]"
+        skinsMenu.options[1].innerText = "KY (by TYOKOGITUNE) [LOCKED]"
     } else {
-        document.querySelector(".skins").options[1].innerText = "KY (by TYOKOGITUNE)"
+        skinsMenu.options[1].innerText = "KY (by TYOKOGITUNE)"
     }
 }
-document.querySelector(".skins").onchange = function(){
+skinsMenu.onchange = function(){
     updateSkinUIState();
     console.log(this.value)
-    if (!skinState.ky.unlocked) {
+    if (!skinState.ky.unlocked && this.value == "ky_by_tg") {
         alert("This skin is not unlocked!");
         this.value = "think_face";
+    } else {
+        updateImg("ky","normal")
+    }
+    if (this.value == "think_face") {
+        imgEle.onclick()
     }
 }
