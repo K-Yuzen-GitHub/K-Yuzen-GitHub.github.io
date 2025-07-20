@@ -92,6 +92,11 @@ imgEle.onclick = function() {
     if (clickCounter >= 2000) {
         updateImg("thinking-face","apple")
     }
+    if (clickCounter >= 5000) {
+        skinState.ky.unlocked = true;
+        alert('Skin "KY" is now UNLOCKED!!!')
+        updateSkinUIState()
+    }
     updateCounter();
 
     // --- ここから縮みアニメ処理 ---
