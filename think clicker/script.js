@@ -9,8 +9,8 @@ let imgEle = document.querySelector(".emoji");
 let countText = document.querySelector(".clickCount");
 let skinsMenu = document.querySelector(".skins");
 let gameInfo = {
-    version: "v1.6",
-    buildNumber: "20250720-160"
+    version: "v1.6.5",
+    buildNumber: "20250720-165"
 }
 let skinState = {
     default: {
@@ -149,6 +149,8 @@ setInterval(function () {
         document.querySelector(".timer").textContent =
         `Timer: ${elapsedSec.toFixed(3)}s | Clicks: ${clickCounter} | Click Multipier: ${clikPlus}`;
     }
+    document.querySelector(".info").textContent =
+    `${gameInfo.version} (build ${gameInfo.buildNumber}) | Copyright K.Yuzen 2023-2025, All right reserved.`;
 }, 16);
 
 setInterval(async function() {
