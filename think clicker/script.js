@@ -5,8 +5,8 @@ var timer = 0.000
 
 let disableTextRewrite = false
 let gameInfo = {
-    version: "v1.1.0",
-    buildNumber: "20250720-110"
+    version: "v1.2.0",
+    buildNumber: "20250720-120"
 }
 let imgEle = document.querySelector(".emoji");
 let countText = document.querySelector(".clickCount");
