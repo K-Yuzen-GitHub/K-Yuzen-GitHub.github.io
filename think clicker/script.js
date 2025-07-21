@@ -138,10 +138,28 @@ async function save() {
         nowSkin: skinsMenu.value
     }
     console.log(saveData)
-    localStorage.setItem("save_00",JSON.stringify(saveData))
+    try {
+        localStorage.setItem("save_00",JSON.stringify(saveData))
+    } catch(e) {
+       disableTextRewrite = true;
+        document.querySelector(".timer").textContent = "Failed to save. Please grant access to site data."
+        document.querySelector(".timer").style.color = "red"
+        await sleep(3000)
+        return "error"
+    }
     disableTextRewrite = true;
     document.querySelector(".timer").textContent = "Saved.";
-    await sleep(3000);
+    await sleep(1000);
+    document.querySelector(".timer").textContent = "Checking save...";
+    await sleep(1500)
+    if (localStograge.getItem("save_00") == null) {
+        document.querySelector(".timer").textContent = "Failed to save. Do you use file:/// scheme?"
+        document.querySelector(".timer").style.color = "red"
+        await sleep(3000)
+    } else {
+        document.querySelector(".timer").textContent = "Successed to Save!";
+        await sleep(3000)
+    }
     disableTextRewrite = false;
 }
 
