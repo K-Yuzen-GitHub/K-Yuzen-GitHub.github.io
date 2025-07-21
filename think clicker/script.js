@@ -155,7 +155,7 @@ async function save() {
     document.querySelector(".timer").textContent = "Checking save...";
     await sleep(1500)
     if (localStorage.getItem("save_00") == null) {
-        document.querySelector(".timer").textContent = "Failed to save. If you use file:/// scheme, You can't use save.";
+        document.querySelector(".timer").textContent = "Failed to save. Please report to developer.";
         document.querySelector(".timer").style.color = "red";
         await sleep(3000)
     } else {
@@ -233,4 +233,28 @@ if (saved != null) {
     previousCounter = clickCounter;
     skinsMenu.onchange();
     updateCounter();
+}
+window.onerror = function(event) {
+    alert("ゲームのスクリプト内でエラーが発生しました。¥nもし報告する場合、開発者へ次の画面で表示されるエラーログを送信してください。")
+    alert(`Error date: ${new Date()}
+    User agent: ${navigator.userAgent}
+    Error:
+    `,event)
+    let ifReload = confirm("ゲームを一度セーブして、リロードしますか？¥n(リロードすることを推奨します。)")
+    if (ifReload) {
+            let saveData = {
+                nowTimer: timer,
+                clickCount: clickCounter,
+                clickUpNow: clickPlus,
+                nowSkin: skinsMenu.value
+            }
+            console.log(saveData)
+            try {
+                localStorage.setItem("save_00",JSON.stringify(saveData))
+                alert("セーブしました。¥nゲームをリロードします。")
+            } catch(e) {
+                alert("セーブに失敗しました。¥nゲームをリロードします。")
+            }
+        location.reload
+    }
 }
