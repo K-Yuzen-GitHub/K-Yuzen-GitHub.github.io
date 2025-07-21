@@ -154,7 +154,7 @@ async function save() {
     await sleep(1000);
     document.querySelector(".timer").textContent = "Checking save...";
     await sleep(1500)
-    if (localStograge.getItem("save_00") == null) {
+    if (localStorage.getItem("save_00") == null) {
         document.querySelector(".timer").textContent = "Failed to save. If you use file:/// scheme, You can't use save.";
         document.querySelector(".timer").style.color = "red";
         await sleep(3000)
