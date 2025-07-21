@@ -10,8 +10,8 @@ let imgEle = document.querySelector(".emoji");
 let countText = document.querySelector(".clickCount");
 let skinsMenu = document.querySelector(".skins");
 let gameInfo = {
-    version: "v1.7",
-    buildNumber: "20250720-170"
+    version: "v1.7.5",
+    buildNumber: "20250720-175"
 }
 let skinState = {
     default: {
@@ -141,10 +141,11 @@ async function save() {
     try {
         localStorage.setItem("save_00",JSON.stringify(saveData))
     } catch(e) {
-       disableTextRewrite = true;
+        disableTextRewrite = true;
         document.querySelector(".timer").textContent = "Failed to save. Please grant access to site data."
         document.querySelector(".timer").style.color = "red"
         await sleep(3000)
+        disableTextRewrite = false;
         return "error"
     }
     disableTextRewrite = true;
@@ -153,11 +154,12 @@ async function save() {
     document.querySelector(".timer").textContent = "Checking save...";
     await sleep(1500)
     if (localStograge.getItem("save_00") == null) {
-        document.querySelector(".timer").textContent = "Failed to save. Do you use file:/// scheme?"
-        document.querySelector(".timer").style.color = "red"
+        document.querySelector(".timer").textContent = "Failed to save. If you use file:/// scheme, You can't use save.";
+        document.querySelector(".timer").style.color = "red";
         await sleep(3000)
     } else {
         document.querySelector(".timer").textContent = "Successed to Save!";
+        document.querySelector(".timer").style.color = "green"
         await sleep(3000)
     }
     disableTextRewrite = false;
