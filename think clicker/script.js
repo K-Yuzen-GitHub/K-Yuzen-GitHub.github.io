@@ -146,6 +146,7 @@ async function save() {
         document.querySelector(".timer").style.color = "red"
         await sleep(3000)
         disableTextRewrite = false;
+        document.querySelector(".timer").style.color = "";
         return "error"
     }
     disableTextRewrite = true;
@@ -159,9 +160,10 @@ async function save() {
         await sleep(3000)
     } else {
         document.querySelector(".timer").textContent = "Successed to Save!";
-        document.querySelector(".timer").style.color = "green"
+        document.querySelector(".timer").style.color = "green";
         await sleep(3000)
     }
+    document.querySelector(".timer").style.color = "";
     disableTextRewrite = false;
 }
 
