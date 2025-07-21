@@ -10,8 +10,8 @@ let imgEle = document.querySelector(".emoji");
 let countText = document.querySelector(".clickCount");
 let skinsMenu = document.querySelector(".skins");
 let gameInfo = {
-    version: "v1.8",
-    buildNumber: "20250720-180"
+    version: "v1.8.1",
+    buildNumber: "20250720-181"
 }
 let skinState = {
     default: {
@@ -235,12 +235,12 @@ if (saved != null) {
     updateCounter();
 }
 window.onerror = function(event) {
-    alert("ゲームのスクリプト内でエラーが発生しました。¥nもし報告する場合、開発者へ次の画面で表示されるエラーログを送信してください。")
+    alert("ゲームのスクリプト内でエラーが発生しました。\nもし報告する場合、開発者へ次の画面で表示されるエラーログを送信してください。")
     alert(`Error date: ${new Date()}
     User agent: ${navigator.userAgent}
     Error:
     `,event)
-    let ifReload = confirm("ゲームを一度セーブして、リロードしますか？¥n(リロードすることを推奨します。)")
+    let ifReload = confirm("ゲームを一度セーブして、リロードしますか？\n(リロードすることを推奨します。)")
     if (ifReload) {
             let saveData = {
                 nowTimer: timer,
@@ -251,10 +251,10 @@ window.onerror = function(event) {
             console.log(saveData)
             try {
                 localStorage.setItem("save_00",JSON.stringify(saveData))
-                alert("セーブしました。¥nゲームをリロードします。")
+                alert("セーブしました。\nゲームをリロードします。")
             } catch(e) {
-                alert("セーブに失敗しました。¥nゲームをリロードします。")
+                alert("セーブに失敗しました。\nゲームをリロードします。")
             }
-        location.reload
+        location.reload()
     }
 }
